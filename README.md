@@ -1,12 +1,21 @@
 Buffer 
 ==========
 
-[![GoDoc](https://godoc.org/github.com/djherbis/buffer?status.svg)](https://godoc.org/github.com/djherbis/buffer)
-[![Release](https://img.shields.io/github/release/djherbis/buffer.svg)](https://github.com/djherbis/buffer/releases/latest)
+<!-- 
+[![GoDoc](https://godoc.org/github.com/to6ka/buffer?status.svg)](https://godoc.org/github.com/to6ka/buffer)
+[![Release](https://img.shields.io/github/release/djherbis/buffer.svg)](https://github.com/to6ka/buffer/releases/latest)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.txt)
 [![Build Status](https://travis-ci.org/djherbis/buffer.svg?branch=master)](https://travis-ci.org/djherbis/buffer) 
 [![Coverage Status](https://coveralls.io/repos/djherbis/buffer/badge.svg?branch=master)](https://coveralls.io/r/djherbis/buffer?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/djherbis/buffer)](https://goreportcard.com/report/github.com/djherbis/buffer)
+[![Go Report Card](https://goreportcard.com/badge/github.com/to6ka/buffer)](https://goreportcard.com/report/github.com/to6ka/buffer)
+ -->
+
+Comment
+------------
+this is the same buffer as [github.com/djherbis/buffer](https://github.com/djherbis/buffer)
+just added:
+* interface `BufferCompatible`, where `Len/Cap` methods return `int` as in `bytes.Buffer`
+* `NewAllocated` method which creates memory buffer with preallocated byte slice
 
 Usage
 ------------
@@ -17,7 +26,7 @@ For example:
 
 ```go
 import (
-  "github.com/djherbis/buffer"
+  "github.com/to6ka/buffer"
   "github.com/djherbis/nio"
   
   "io/ioutil"
@@ -46,7 +55,7 @@ import (
   "ioutil"
   "os"
   
-  "github.com/djherbis/buffer"
+  "github.com/to6ka/buffer"
 )
 
 // Create a File-based Buffer with max size 100MB
@@ -73,7 +82,7 @@ Multi: A fixed length linked-list of buffers. Each buffer reads from the next bu
 
 ```go
 import (
-  "github.com/djherbis/buffer"
+  "github.com/to6ka/buffer"
 )
 
 mem  := buffer.New(32*1024)
@@ -89,7 +98,7 @@ Partition: A queue of buffers. Writes always go to the first buffer in the queue
 
 ```go
 import (
-  "github.com/djherbis/buffer"
+  "github.com/to6ka/buffer"
 )
 
 // Create 32 KB sized-chunks of memory as needed to expand/contract the buffer size.
@@ -103,7 +112,7 @@ Ring: A single buffer which begins overwriting the oldest buffered data when it 
 
 ```go
 import (
-  "github.com/djherbis/buffer"
+  "github.com/to6ka/buffer"
 )
 
 // Create a File-based Buffer with max size 100MB
@@ -118,7 +127,7 @@ Spill: A single buffer which when full, writes the overflow to a given io.Writer
 
 ```go
 import (
-  "github.com/djherbis/buffer"
+  "github.com/to6ka/buffer"
   "github.com/djherbis/nio"
   
   "io/ioutil"
@@ -135,7 +144,7 @@ Discard: Reads always return EOF, writes goto ioutil.Discard.
 
 ```go
 import (
-  "github.com/djherbis/buffer"
+  "github.com/to6ka/buffer"
 )
 
 // Reads will return io.EOF, writes will return success (nil error, full write) but no data was written.
@@ -170,5 +179,5 @@ type BufferAt interface {
 Installation
 ------------
 ```sh
-go get github.com/djherbis/buffer
+go get github.com/to6ka/buffer
 ```

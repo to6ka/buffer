@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/djherbis/buffer/limio"
+	"github.com/to6ka/buffer/limio"
 )
 
 type memory struct {
@@ -20,6 +20,13 @@ func New(n int64) BufferAt {
 	return &memory{
 		N:      n,
 		Buffer: bytes.NewBuffer(nil),
+	}
+}
+
+func NewAllocated(n int64) BufferAt {
+	return &memory{
+		N:      n,
+		Buffer: bytes.NewBuffer(make([]byte, 0, int(n))),
 	}
 }
 

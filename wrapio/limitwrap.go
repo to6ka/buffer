@@ -4,7 +4,7 @@ import (
 	"encoding/gob"
 	"io"
 
-	"github.com/djherbis/buffer/limio"
+	"github.com/to6ka/buffer/limio"
 )
 
 // ReadWriterAt implements io.ReaderAt and io.WriterAt

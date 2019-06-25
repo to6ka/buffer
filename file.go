@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/djherbis/buffer/wrapio"
+	"github.com/to6ka/buffer/wrapio"
 )
 
 // File is used as the backing resource for a the NewFile BufferAt.
